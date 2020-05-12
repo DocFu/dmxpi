@@ -1,56 +1,46 @@
 package de.plasmawolke.dmxpi.qlc;
 
-import java.net.URI;
-import java.util.concurrent.TimeUnit;
-
-import org.eclipse.jetty.websocket.client.ClientUpgradeRequest;
-import org.eclipse.jetty.websocket.client.WebSocketClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class VirtualConsoleButton {
 
-	private final static Logger logger = LoggerFactory.getLogger(VirtualConsoleButton.class);
+	public static final String CHANGE_PROPERTY_NAME = "VirtualConsoleButtonState";
 
-	private static final String url = "ws://192.168.23.121:9999/qlcplusWS";
+	private PropertyChangeSupport support;
 
 	private Integer id;
 
 	private String name;
 
-	public void click() {
-		logger.info("Clicking button " + this);
+	private AtomicBoolean state = new AtomicBoolean(false);
 
-		String message1 = id + "|0";
-		String message2 = id + "|255";
+	public VirtualConsoleButton() {
+		support = new PropertyChangeSupport(this);
+	}
 
-		/// ----
+	public void addPropertyChangeListener(PropertyChangeListener pcl) {
+		support.addPropertyChangeListener(pcl);
+	}
 
-		WebSocketClient client = new WebSocketClient();
-		QlcWebSocket socket = new QlcWebSocket();
+	public void removePropertyChangeListener(PropertyChangeListener pcl) {
+		support.removePropertyChangeListener(pcl);
+	}
 
-		socket.setMessage1(message1);
-		socket.setMessage2(message2);
+	public void updateState(boolean newState) {
 
-		try {
-			client.start();
-
-			URI echoUri = new URI(url);
-			ClientUpgradeRequest request = new ClientUpgradeRequest();
-			client.connect(socket, echoUri, request);
-			logger.info("Connecting to : %s%n", echoUri);
-
-			// wait for closed socket connection.
-			socket.awaitClose(1, TimeUnit.SECONDS);
-		} catch (Throwable t) {
-			logger.error("Could not speak with websocket:", t);
-		} finally {
-			try {
-				client.stop();
-			} catch (Exception e) {
-				logger.error("Could not stop websocket client:", e);
-			}
+		if (state.compareAndSet(!newState, newState)) {
+			support.firePropertyChange(CHANGE_PROPERTY_NAME, !newState, newState);
 		}
+
+	}
+
+	/**
+	 * @return the state
+	 */
+	public boolean getState() {
+		return state.get();
 	}
 
 	/**
