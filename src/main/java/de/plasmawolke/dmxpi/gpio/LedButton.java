@@ -18,7 +18,7 @@ public enum LedButton {
 	B4(RaspiPin.GPIO_22, RaspiPin.GPIO_26),
 	B5(RaspiPin.GPIO_21, RaspiPin.GPIO_06),
 	B6(RaspiPin.GPIO_03, RaspiPin.GPIO_05),
-	B7(RaspiPin.GPIO_03, RaspiPin.GPIO_04),
+	B7(RaspiPin.GPIO_02, RaspiPin.GPIO_04),
 	B8(RaspiPin.GPIO_00, RaspiPin.GPIO_01);
 	
 	private final Pin buttonPin;
