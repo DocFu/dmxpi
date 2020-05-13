@@ -1,10 +1,12 @@
 <configuration>
 
-	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+	<contextListener
+		class="ch.qos.logback.classic.jul.LevelChangePropagator">
 		<resetJUL>true</resetJUL>
 	</contextListener>
 
-	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
 		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder 
 			by default -->
 		<encoder>
@@ -14,13 +16,12 @@
 	</appender>
 
 	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
-		<file>application.log</file>
+		<file>dmxpi.log</file>
 		<encoder>
-			<pattern>%date - [%level] - from %logger in %thread
-				%n%message%n%xException%n</pattern>
+			<pattern>%date - [%level] - from %logger in %thread %n%message%n%xException%n</pattern>
 		</encoder>
 	</appender>
-	
+
 	<logger name="com.beowulfe.hap" level="DEBUG" />
 
 	<root level="info">

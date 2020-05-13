@@ -2,6 +2,8 @@ package de.plasmawolke.dmxpi.gpio;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,10 +12,8 @@ import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalInput;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
-import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinPullResistance;
 import com.pi4j.io.gpio.PinState;
-import com.pi4j.io.gpio.RaspiPin;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 
@@ -24,15 +24,9 @@ public class LedButtonController implements PropertyChangeListener {
 
 	private final static Logger logger = LoggerFactory.getLogger(LedButtonController.class);
 
-	private static final int[] bcmInputPinNumbers = { 26, 19, 13, 6, 5, 22, 27, 17 };
-	private static final int[] bcmOutputPinNumbers = { 21, 20, 16, 12, 25, 24, 23, 18 };
-
-	private static final int[] inputPinNumbers = { 25, 24, 23, 22, 21, 3, 2, 0 };
-	private static final int[] outputPinNumbers = { 29, 28, 27, 26, 6, 5, 4, 1 };
-
-	private static final GpioPinDigitalOutput[] outputPins = new GpioPinDigitalOutput[8];
-
 	private GpioController gpio = null;
+
+	private Map<LedButton, GpioPinDigitalOutput> outputs = new HashMap<>();
 
 	public LedButtonController() {
 
@@ -54,11 +48,13 @@ public class LedButtonController implements PropertyChangeListener {
 			gpio = new MockGpioController();
 		}
 
-		for (int i = 0; i < inputPinNumbers.length; i++) {
+		LedButton[] ledButtons = LedButton.values();
 
-			Pin pin = RaspiPin.getPinByAddress(inputPinNumbers[i]);
+		for (int i = 0; i < ledButtons.length; i++) {
 
-			GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pin, "Button " + (i + 1),
+			LedButton ledButton = ledButtons[i];
+
+			GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(ledButton.getButtonPin(), ledButton.name(),
 					PinPullResistance.PULL_DOWN);
 
 			if (inputPin == null) {
@@ -71,31 +67,35 @@ public class LedButtonController implements PropertyChangeListener {
 				@Override
 				public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
 
-					// display pin state on console
-					logger.info("GPIO PIN STATE CHANGE (" + event.getSource() + "): " + event.getPin() + " = "
-							+ event.getState());
+					String pinName = event.getPin().getName();
+					LedButton ledButton = LedButton.valueOf(pinName);
 
 					if (PinState.HIGH == event.getState()) {
-						VirtualConsole.get().clickButton(30);
+						onButtonPress(ledButton);
 					}
 
 				}
 			});
-		}
 
-		for (int i = 0; i < outputPinNumbers.length; i++) {
-			Pin pin = RaspiPin.getPinByAddress(outputPinNumbers[i]);
-			GpioPinDigitalOutput outputPin = gpio.provisionDigitalOutputPin(pin, "Led " + (i + 1), PinState.LOW);
+			GpioPinDigitalOutput outputPin = gpio.provisionDigitalOutputPin(ledButton.getLedPin(), ledButton.name(),
+					PinState.LOW);
 
 			if (outputPin == null) {
 				// TODO remove after improved MockImplementation
 				continue;
 			}
-			
-			outputPins[i] = outputPin;
+
+			outputs.put(ledButton, outputPin);
 		}
 
 		logger.info("Done");
+
+	}
+
+	protected void onButtonPress(LedButton ledButton) {
+		// VirtualConsole.get().clickButton(30);
+		logger.info(ledButton + " was pressed.");
+		outputs.get(ledButton).blink(1000);
 
 	}
 
@@ -106,6 +106,10 @@ public class LedButtonController implements PropertyChangeListener {
 			VirtualConsoleButton vcb = (VirtualConsoleButton) evt.getSource();
 			logger.info("Switched " + ((boolean) evt.getNewValue() ? "ON" : "OFF") + " " + vcb);
 		}
+
+	}
+
+	private void shutdown() {
 
 	}
 
