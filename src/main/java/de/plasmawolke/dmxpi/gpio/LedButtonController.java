@@ -2,6 +2,10 @@ package de.plasmawolke.dmxpi.gpio;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,13 +33,63 @@ public class LedButtonController implements PropertyChangeListener {
 	private Map<LedButton, GpioPinDigitalOutput> outputs = new HashMap<>();
 
 	private Map<LedButton, Long> lastHighStateTimestamps = new HashMap<>();
+	
+	
+	
 
 	public LedButtonController() {
 
-		VirtualConsole.get().addButtonListener(this);
-
 		wire();
 
+		runLedTest();
+		
+		updateLedsByVirtualConsole();
+
+		VirtualConsole.get().addButtonListener(this);
+
+	}
+
+	private void updateLedsByVirtualConsole() {
+		Collection<VirtualConsoleButton> buttons = VirtualConsole.get().getButtons();
+		
+		for (VirtualConsoleButton virtualConsoleButton : buttons) {
+			
+			if(virtualConsoleButton.getState()) {
+				
+				Integer vcbId = virtualConsoleButton.getId();
+
+				switch (vcbId) {
+				case 11:
+					outputs.get(LedButton.B1).setState(true);
+					break;
+				case 5:
+					outputs.get(LedButton.B2).setState(true);
+					break;
+				case 12:
+					outputs.get(LedButton.B3).setState(true);
+					break;
+				case 25:
+					outputs.get(LedButton.B4).setState(true);
+					break;
+				case 22:
+					outputs.get(LedButton.B5).setState(true);
+					break;
+				case 23:
+					outputs.get(LedButton.B6).setState(true);
+					break;
+				case 24:
+					outputs.get(LedButton.B7).setState(true);
+					break;
+
+				default:
+					break;
+				}
+
+				
+			}
+			
+		}
+		
 	}
 
 	private void wire() {
@@ -68,7 +122,7 @@ public class LedButtonController implements PropertyChangeListener {
 
 				@Override
 				public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-					logger.info("PinStateChanged " + event);
+					logger.info("PinStateChanged " + event.getPin());
 					String pinName = event.getPin().getName();
 					LedButton ledButton = LedButton.valueOf(pinName);
 
@@ -84,7 +138,7 @@ public class LedButtonController implements PropertyChangeListener {
 						logger.info("Press duraction: " + millis);
 
 						if (millis > 3000 && millis < 6000) {
-							shutdown();
+							onButtonLongPress(ledButton);
 						}
 
 					}
@@ -107,40 +161,95 @@ public class LedButtonController implements PropertyChangeListener {
 
 	}
 
+	private void runLedTest() {
+
+		for (int i = 0; i < 5; i++) {
+
+			for (int j = 0; j < LedButton.values().length; j++) {
+				
+				LedButton btn = LedButton.values()[j];
+				outputs.get(btn).setState(true);
+				try {
+					Thread.sleep(200);
+				} catch (Exception e) {
+					logger.error("xxx",e);
+				}
+
+				outputs.get(btn).setState(false);
+
+			}
+		}
+
+	}
+
 	protected void onButtonPress(LedButton ledButton) {
 
 		logger.info(ledButton + " was pressed.");
 
 		switch (ledButton) {
 		case B1:
-			VirtualConsole.get().clickButton(5);
+			VirtualConsole.get().clickButton(11); // Hütte - Baulicht
 			break;
 		case B2:
-			VirtualConsole.get().clickButton(6);
+			VirtualConsole.get().clickButton(5); // Hütte - Rotlicht
 			break;
 		case B3:
-			VirtualConsole.get().clickButton(10);
+			VirtualConsole.get().clickButton(12); // Hütte - Arbeitslicht
 			break;
 		case B4:
-			VirtualConsole.get().clickButton(9);
+			VirtualConsole.get().clickButton(25); // Garten - Spot
 			break;
 		case B5:
-			VirtualConsole.get().clickButton(3);
+			VirtualConsole.get().clickButton(22); // Garten - Taghell
 			break;
 		case B6:
-			VirtualConsole.get().clickButton(2);
+			VirtualConsole.get().clickButton(23); // Garten - Schlafenszeit
 			break;
 		case B7:
-			VirtualConsole.get().clickButton(30);
+			VirtualConsole.get().clickButton(24); // Garten - Blackout
 			break;
 		case B8:
-			VirtualConsole.get().clickButton(31);
+			// Hier nix machen
 			break;
 
 		default:
 			break;
 		}
 
+	}
+
+	protected void onButtonLongPress(LedButton ledButton) {
+		logger.info(ledButton + " was pressed for a long time.");
+
+		switch (ledButton) {
+		case B1:
+
+			break;
+		case B2:
+
+			break;
+		case B3:
+
+			break;
+		case B4:
+
+			break;
+		case B5:
+
+			break;
+		case B6:
+
+			break;
+		case B7:
+
+			break;
+		case B8:
+			shutdown();
+			break;
+
+		default:
+			break;
+		}
 	}
 
 	@Override
@@ -153,29 +262,26 @@ public class LedButtonController implements PropertyChangeListener {
 			Integer vcbId = vcb.getId();
 
 			switch (vcbId) {
-			case 5:
+			case 11:
 				outputs.get(LedButton.B1).setState((boolean) evt.getNewValue());
 				break;
-			case 6:
+			case 5:
 				outputs.get(LedButton.B2).setState((boolean) evt.getNewValue());
 				break;
-			case 10:
+			case 12:
 				outputs.get(LedButton.B3).setState((boolean) evt.getNewValue());
 				break;
-			case 9:
+			case 25:
 				outputs.get(LedButton.B4).setState((boolean) evt.getNewValue());
 				break;
-			case 3:
+			case 22:
 				outputs.get(LedButton.B5).setState((boolean) evt.getNewValue());
 				break;
-			case 2:
+			case 23:
 				outputs.get(LedButton.B6).setState((boolean) evt.getNewValue());
 				break;
-			case 30:
+			case 24:
 				outputs.get(LedButton.B7).setState((boolean) evt.getNewValue());
-				break;
-			case 31:
-				outputs.get(LedButton.B8).setState((boolean) evt.getNewValue());
 				break;
 
 			default:
@@ -187,99 +293,86 @@ public class LedButtonController implements PropertyChangeListener {
 	}
 
 	private static long blinkDelay = 200;
-	private static long blinkDuration = 1000;
+	private static long blinkDuration = 10000;
 
 	private void shutdown() {
 		logger.info("Starting DMXPi shutdown sequence...");
 
-		outputs.get(LedButton.B1).setState(true);
-		outputs.get(LedButton.B2).setState(true);
-		outputs.get(LedButton.B3).setState(true);
-		outputs.get(LedButton.B4).setState(true);
-		outputs.get(LedButton.B5).setState(true);
-		outputs.get(LedButton.B6).setState(true);
-		outputs.get(LedButton.B7).setState(true);
+		outputs.get(LedButton.B1).blink(blinkDelay, blinkDuration);
+		outputs.get(LedButton.B2).blink(blinkDelay, blinkDuration);
+		outputs.get(LedButton.B3).blink(blinkDelay, blinkDuration);
+		outputs.get(LedButton.B4).blink(blinkDelay, blinkDuration);
+		outputs.get(LedButton.B5).blink(blinkDelay, blinkDuration);
+		outputs.get(LedButton.B6).blink(blinkDelay, blinkDuration);
+		outputs.get(LedButton.B7).blink(blinkDelay, blinkDuration);
+		outputs.get(LedButton.B8).setState(true);
 
 		// Stop VirtualConsole WebSocket
 		try {
-			outputs.get(LedButton.B8).blink(blinkDelay, blinkDuration);
-			Thread.sleep(blinkDuration);
-			outputs.get(LedButton.B8).setState(false);
-			logger.info("8");
-		} catch (InterruptedException e) {
-			logger.error("ThreadSleep:", e);
+			logger.info("Stopping Virtual Console...");
+			VirtualConsole.get().shutdown();
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			logger.error("Error while stopping virtual console:", e);
 		}
 
 		// Shutdown HAP Server
 		try {
-			outputs.get(LedButton.B7).blink(blinkDelay, blinkDuration);
-			Thread.sleep(blinkDuration);
-			outputs.get(LedButton.B7).setState(false);
-			logger.info("7");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			logger.info("Stopping HAP Server...");
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			logger.error("Error while stopping HAP Server:", e);
 		}
-		
+
 		// Kill QLC+
+		// pkill -9 qlcplus
 		try {
-			outputs.get(LedButton.B6).blink(blinkDelay, blinkDuration);
-			Thread.sleep(blinkDuration);
-			outputs.get(LedButton.B6).setState(false);
-			logger.info("6");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-		
-		try {
-			outputs.get(LedButton.B5).blink(blinkDelay, blinkDuration);
-			Thread.sleep(blinkDuration);
-			outputs.get(LedButton.B5).setState(false);
-			logger.info("5");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-		try {
-			outputs.get(LedButton.B4).blink(blinkDelay, blinkDuration);
-			Thread.sleep(blinkDuration);
-			outputs.get(LedButton.B4).setState(false);
-			logger.info("4");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-		try {
-			outputs.get(LedButton.B3).blink(blinkDelay, blinkDuration);
-			Thread.sleep(blinkDuration);
-			outputs.get(LedButton.B3).setState(false);
-			logger.info("3");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			logger.info("Killing QLC+...");
+			int exitVal = executeCommand("pkill -9 qlcplus");
+			logger.info("Killed QLC+ with exit code " + exitVal);
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			logger.error("Error while killing QLC+:", e);
 		}
 
 		// Execute custom shutdown
 		try {
-			outputs.get(LedButton.B2).blink(blinkDelay, blinkDuration);
-			Thread.sleep(blinkDuration);
-			outputs.get(LedButton.B2).setState(false);
-			logger.info("2");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			logger.info("Stopping other stuff...");
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			logger.error("Error while stopping other stuff:", e);
 		}
-        
-		// Shutdown GPIO
+
+		// Shutdown -h now
 		try {
-			outputs.get(LedButton.B1).blink(blinkDelay, blinkDuration);
-			Thread.sleep(blinkDuration);
-			outputs.get(LedButton.B1).setState(false);
-			logger.info("1");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			logger.info("Sending shutdown signal to system now! CU :)");
+			executeCommand("shutdown -h now");
+		} catch (Exception e) {
+			logger.error("Error while shutting down dmxpi:", e);
 		}
 
-		logger.info("Sending shutdown signal to system now! CU :)");
+	}
 
+	private static int executeCommand(String command) throws IOException, InterruptedException {
+
+		ProcessBuilder processBuilder = new ProcessBuilder();
+
+		processBuilder.command("bash", "-c", command);
+
+		Process process = processBuilder.start();
+
+		StringBuilder output = new StringBuilder("\n");
+
+		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+		String line;
+		while ((line = reader.readLine()) != null) {
+			output.append(line + "\n");
+		}
+
+		logger.info(output.toString());
+
+		return process.waitFor();
 	}
 
 }

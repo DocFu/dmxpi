@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Workspace>
+<Workspace xmlns="http://www.qlcplus.org/Workspace" CurrentWindow="InputOutputManager">
+ <Creator>
+  <Name>Q Light Controller Plus</Name>
+  <Version>4.12.2</Version>
+  <Author>Arne Schueler</Author>
+ </Creator>
+ <Engine Autostart="4">
+  <InputOutputMap>
+   <Universe Name="Universe 1" ID="0"/>
+   <Universe Name="Universe 2" ID="1"/>
+   <Universe Name="Universe 3" ID="2"/>
+   <Universe Name="Universe 4" ID="3"/>
+  </InputOutputMap>
+  <Fixture>
+   <Manufacturer>Astera</Manufacturer>
+   <Model>AX5</Model>
+   <Mode>7 Kanal</Mode>
+   <ID>0</ID>
+   <Name>AX5 Hütte</Name>
+   <Universe>0</Universe>
+   <Address>0</Address>
+   <Channels>7</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Astera</Manufacturer>
+   <Model>AX5</Model>
+   <Mode>7 Kanal</Mode>
+   <ID>1</ID>
+   <Name>AX5 Arena Links Hinten</Name>
+   <Universe>0</Universe>
+   <Address>7</Address>
+   <Channels>7</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Astera</Manufacturer>
+   <Model>AX5</Model>
+   <Mode>7 Kanal</Mode>
+   <ID>2</ID>
+   <Name>AX5 Arena Hinten Rechts</Name>
+   <Universe>0</Universe>
+   <Address>14</Address>
+   <Channels>7</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Astera</Manufacturer>
+   <Model>AX5</Model>
+   <Mode>7 Kanal</Mode>
+   <ID>3</ID>
+   <Name>AX5 Arena Vorne Rechts</Name>
+   <Universe>0</Universe>
+   <Address>21</Address>
+   <Channels>7</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Astera</Manufacturer>
+   <Model>AX5</Model>
+   <Mode>7 Kanal</Mode>
+   <ID>4</ID>
+   <Name>AX5 Arena Vorne Links</Name>
+   <Universe>0</Universe>
+   <Address>28</Address>
+   <Channels>7</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Astera</Manufacturer>
+   <Model>AX5</Model>
+   <Mode>7 Kanal</Mode>
+   <ID>5</ID>
+   <Name>AX5 Mobil 1</Name>
+   <Universe>0</Universe>
+   <Address>35</Address>
+   <Channels>7</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Astera</Manufacturer>
+   <Model>AX5</Model>
+   <Mode>7 Kanal</Mode>
+   <ID>6</ID>
+   <Name>AX5 Mobil 2</Name>
+   <Universe>0</Universe>
+   <Address>42</Address>
+   <Channels>7</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Astera</Manufacturer>
+   <Model>AX5</Model>
+   <Mode>7 Kanal</Mode>
+   <ID>7</ID>
+   <Name>AX5 Mobil 3</Name>
+   <Universe>0</Universe>
+   <Address>49</Address>
+   <Channels>7</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>JB Lightning</Manufacturer>
+   <Model>Sparx 7</Model>
+   <Mode>24</Mode>
+   <ID>8</ID>
+   <Name>Sparx 7 #1</Name>
+   <Universe>0</Universe>
+   <Address>100</Address>
+   <Channels>24</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>JB Lightning</Manufacturer>
+   <Model>Sparx 7</Model>
+   <Mode>24</Mode>
+   <ID>9</ID>
+   <Name>Sparx 7 #2</Name>
+   <Universe>0</Universe>
+   <Address>124</Address>
+   <Channels>24</Channels>
+  </Fixture>
+  <Fixture>
+   <Manufacturer>Stairville</Manufacturer>
+   <Model>LED Bar 240/8 RGB</Model>
+   <Mode>24-channel</Mode>
+   <ID>10</ID>
+   <Name>LED Bar 240/8 RGB</Name>
+   <Universe>0</Universe>
+   <Address>199</Address>
+   <Channels>24</Channels>
+  </Fixture>
+  <ChannelsGroup ID="0" Name="Mobil Helligkeit" Value="0">5,0,6,0,7,0</ChannelsGroup>
+  <Function ID="0" Type="Scene" Name="Mobil Amber" Path="Mobil">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="5">0,51,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="6">0,51,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="7">0,51,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="1" Type="Scene" Name="Baulicht" Path="Hütte">
+   <Speed FadeIn="2000" FadeOut="2000" Duration="0"/>
+   <FixtureVal ID="0">0,60,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="2" Type="Scene" Name="Rot" Path="Arena/Truss">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,64,1,255,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,64,1,255,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,64,1,255,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,64,1,255,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="3" Type="Scene" Name="Grün" Path="Arena/Truss">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,64,1,0,2,255,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,64,1,0,2,255,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,64,1,0,2,255,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,64,1,0,2,255,3,0,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="4" Type="Scene" Name="Blau" Path="Arena/Truss">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,64,1,0,2,0,3,255,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,64,1,0,2,0,3,255,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,64,1,0,2,0,3,255,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,64,1,0,2,0,3,255,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="5" Type="Scene" Name="Amber Dunkel" Hidden="True" Path="Arena">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="6" Type="Chaser" Name="Farbwechsel gemütlich" Path="Arena">
+   <Speed FadeIn="500" FadeOut="500" Duration="3500"/>
+   <Direction>Forward</Direction>
+   <RunOrder>Random</RunOrder>
+   <SpeedModes FadeIn="Common" FadeOut="Common" Duration="Common"/>
+   <Step Number="0" FadeIn="500" Hold="3000" FadeOut="500">20</Step>
+   <Step Number="1" FadeIn="0" Hold="0" FadeOut="0">4</Step>
+   <Step Number="2" FadeIn="0" Hold="0" FadeOut="0">3</Step>
+   <Step Number="3" FadeIn="0" Hold="0" FadeOut="0">2</Step>
+  </Function>
+  <Function ID="7" Type="Scene" Name="Kino I" Path="Arena">
+   <Speed FadeIn="2000" FadeOut="2000" Duration="0"/>
+   <FixtureVal ID="2">0,16,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,16,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="8">0,219,1,0,2,178,3,0,4,0,5,255,6,20,7,0,8,255,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,255,20,255,21,0,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,174,3,0,4,0,5,255,6,20,7,0,8,255,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,255,20,255,21,0,22,0,23,0</FixtureVal>
+  </Function>
+  <Function ID="8" Type="Scene" Name="Bullenlicht" Path="Garten">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,137,1,0,2,180,3,0,4,0,5,255,6,255,7,112,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,0,22,0,23,255</FixtureVal>
+   <FixtureVal ID="9">0,239,1,0,2,76,3,0,4,0,5,255,6,255,7,112,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,0,22,0,23,255</FixtureVal>
+   <FixtureVal ID="0">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,255,1,0,2,0,3,0,4,0,5,255,6,0</FixtureVal>
+   <FixtureVal ID="5">0,255,1,0,2,0,3,255,4,0,5,0,6,191</FixtureVal>
+   <FixtureVal ID="6">0,255,1,0,2,0,3,255,4,0,5,0,6,191</FixtureVal>
+   <FixtureVal ID="7">0,255,1,255,2,0,3,0,4,0,5,0,6,191</FixtureVal>
+   <FixtureVal ID="2"/>
+   <FixtureVal ID="1"/>
+   <FixtureVal ID="4"/>
+   <FixtureVal ID="10"/>
+  </Function>
+  <Function ID="9" Type="Collection" Name="Kino und so Test">
+   <Step Number="0">7</Step>
+   <Step Number="1">1</Step>
+   <Step Number="2">0</Step>
+  </Function>
+  <Function ID="10" Type="Scene" Name="Kino II" Path="Arena">
+   <Speed FadeIn="2000" FadeOut="2000" Duration="0"/>
+   <FixtureVal ID="2">0,48,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,48,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,186,1,184,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,186,1,184,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="8">0,229,1,0,2,150,3,0,4,0,5,255,6,20,7,0,8,224,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,255,20,255,21,0,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,229,1,0,2,150,3,0,4,0,5,255,6,20,7,0,8,224,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,255,20,255,21,0,22,0,23,0</FixtureVal>
+  </Function>
+  <Function ID="11" Type="EFX" Name="FX Line Rechts">
+   <Fixture>
+    <ID>9</ID>
+    <Head>0</Head>
+    <Mode>0</Mode>
+    <Direction>Backward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <PropagationMode>Parallel</PropagationMode>
+   <Speed FadeIn="0" FadeOut="0" Duration="20000"/>
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm>Line</Algorithm>
+   <Width>0</Width>
+   <Height>50</Height>
+   <Rotation>0</Rotation>
+   <StartOffset>0</StartOffset>
+   <IsRelative>0</IsRelative>
+   <Axis Name="X">
+    <Offset>136</Offset>
+    <Frequency>2</Frequency>
+    <Phase>90</Phase>
+   </Axis>
+   <Axis Name="Y">
+    <Offset>127</Offset>
+    <Frequency>3</Frequency>
+    <Phase>0</Phase>
+   </Axis>
+  </Function>
+  <Function ID="12" Type="Scene" Name="Linus" Path="Arena/Sparx-Only">
+   <Speed FadeIn="2000" FadeOut="2000" Duration="0"/>
+   <FixtureVal ID="8">0,117,1,0,2,252,3,0,4,0,5,16,6,210,7,0,8,255,9,192,10,0,11,253,12,0,13,0,14,0,15,0,16,17,17,255,18,255,19,0,20,0,21,0,22,0</FixtureVal>
+   <FixtureVal ID="9">0,191,1,0,2,197,3,0,4,0,5,255,6,255,7,0,8,255,9,192,10,0,11,167,12,0,13,0,14,0,15,0,16,17,17,255,18,255,19,0,20,0,21,0,22,0</FixtureVal>
+  </Function>
+  <Function ID="13" Type="Scene" Name="Amber Dunkel (Kopie)" Hidden="True" Path="Arena">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="14" Type="Scene" Name="Amber Dunkel (Kopie)" Hidden="True" Path="Arena">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="15" Type="Scene" Name="Amber Dunkel (Kopie)" Hidden="True" Path="Arena">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="16" Type="Scene" Name="Amber Dunkel (Kopie)" Hidden="True" Path="Arena">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="17" Type="Scene" Name="Amber Dunkel (Kopie)" Hidden="True" Path="Arena">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="18" Type="Scene" Name="Amber Dunkel (Kopie)" Hidden="True" Path="Arena">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="19" Type="Scene" Name="Amber Dunkel (Kopie)" Hidden="True" Path="Arena">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="20" Type="Scene" Name="Amber" Path="Arena/Truss">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,64,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,64,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,64,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,64,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="21" Type="Scene" Name="Bonbon Feuer" Path="Arena/Sparx-Only">
+   <Speed FadeIn="2000" FadeOut="2000" Duration="0"/>
+   <FixtureVal ID="8">0,221,1,0,2,178,3,0,4,0,5,255,6,71,7,0,8,255,9,208,10,0,11,44,12,0,13,158,14,6,15,3,16,15,17,0,18,0,19,255,20,92,21,0,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,145,1,0,2,85,3,0,4,0,5,255,6,71,7,0,8,255,9,208,10,0,11,44,12,0,13,158,14,6,15,3,16,15,17,0,18,0,19,255,20,92,21,0,22,0,23,0</FixtureVal>
+  </Function>
+  <Function ID="22" Type="Scene" Name="Smilie" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,226,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,111,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,255,20,0,21,0,22,0,23,255</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,173,3,0,4,0,5,255,6,255,7,0,8,111,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,255,20,0,21,0,22,0,23,255</FixtureVal>
+  </Function>
+  <Function ID="23" Type="EFX" Name="FX Line Links">
+   <Fixture>
+    <ID>8</ID>
+    <Head>0</Head>
+    <Mode>0</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <PropagationMode>Parallel</PropagationMode>
+   <Speed FadeIn="0" FadeOut="0" Duration="20000"/>
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm>Line</Algorithm>
+   <Width>0</Width>
+   <Height>50</Height>
+   <Rotation>0</Rotation>
+   <StartOffset>0</StartOffset>
+   <IsRelative>0</IsRelative>
+   <Axis Name="X">
+    <Offset>113</Offset>
+    <Frequency>2</Frequency>
+    <Phase>90</Phase>
+   </Axis>
+   <Axis Name="Y">
+    <Offset>127</Offset>
+    <Frequency>3</Frequency>
+    <Phase>0</Phase>
+   </Axis>
+  </Function>
+  <Function ID="24" Type="Scene" Name="Schlafenszeit" Path="Garten">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,16,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,64,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,32,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,16,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="8">0,255,1,0,2,127,3,0,4,0,5,255,6,32,7,0,8,255,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,255,21,0,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,127,1,0,2,127,3,0,4,0,5,255,6,32,7,0,8,255,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,255,21,0,22,0,23,0</FixtureVal>
+   <FixtureVal ID="0">0,32,1,0,2,0,3,0,4,0,5,255,6,0</FixtureVal>
+   <FixtureVal ID="5">0,16,1,255,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="6">0,16,1,0,2,255,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="7">0,16,1,0,2,0,3,255,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="10">0,0,1,0,2,32,3,32,4,0,5,0,6,32,7,0,8,0,9,32,10,0,11,0,12,32,13,0,14,0,15,32,16,0,17,0,18,32,19,0,20,0,21,0,22,0,23,32</FixtureVal>
+  </Function>
+  <Function ID="25" Type="Scene" Name="Mobil Rot-Blau" Path="Mobil">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="5">0,136,1,0,2,0,3,255,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="6">0,146,1,0,2,0,3,255,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="7">0,83,1,255,2,0,3,230,4,0,5,246,6,0</FixtureVal>
+  </Function>
+  <Function ID="26" Type="Scene" Name="Amber Circles" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,123,1,0,2,127,3,0,4,0,5,255,6,255,7,0,8,255,9,204,10,0,11,60,12,0,13,128,14,14,15,3,16,39,17,0,18,0,19,255,20,0,21,0,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,123,1,0,2,127,3,0,4,0,5,255,6,64,7,0,8,255,9,204,10,0,11,60,12,0,13,128,14,14,15,3,16,39,17,0,18,0,19,255,20,0,21,0,22,0,23,0</FixtureVal>
+  </Function>
+  <Function ID="27" Type="Scene" Name="Mobil RBB" Path="Mobil">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="5">0,136,1,0,2,0,3,255,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="6">0,146,1,0,2,0,3,255,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="7">0,255,1,255,2,0,3,0,4,0,5,128,6,0</FixtureVal>
+  </Function>
+  <Function ID="28" Type="Scene" Name="Disco" Path="Arena">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,145,1,0,2,85,3,0,4,0,5,255,6,225,7,255,8,255,9,208,10,0,11,245,12,147,13,47,14,0,15,0,16,210,17,0,18,0,19,0,20,0,21,0,22,0</FixtureVal>
+   <FixtureVal ID="9">0,145,1,0,2,85,3,0,4,0,5,255,6,71,7,255,8,255,9,208,10,0,11,245,12,147,13,47,14,0,15,0,16,234,17,0,18,0,19,0,20,0,21,0,22,0,23,0</FixtureVal>
+  </Function>
+  <Function ID="29" Type="Collection" Name="FX_Line_red_dot">
+   <Step Number="0">51</Step>
+   <Step Number="1">23</Step>
+   <Step Number="2">11</Step>
+  </Function>
+  <Function ID="30" Type="Scene" Name="Arbeitslicht" Path="Hütte">
+   <Speed FadeIn="2000" FadeOut="2000" Duration="0"/>
+   <FixtureVal ID="0">0,186,1,0,2,0,3,0,4,0,5,255,6,0</FixtureVal>
+  </Function>
+  <Function ID="31" Type="EFX" Name="FX X Links">
+   <Fixture>
+    <ID>8</ID>
+    <Head>0</Head>
+    <Mode>0</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <PropagationMode>Parallel</PropagationMode>
+   <Speed FadeIn="0" FadeOut="0" Duration="20000"/>
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm>Line</Algorithm>
+   <Width>0</Width>
+   <Height>50</Height>
+   <Rotation>1</Rotation>
+   <StartOffset>0</StartOffset>
+   <IsRelative>0</IsRelative>
+   <Axis Name="X">
+    <Offset>72</Offset>
+    <Frequency>2</Frequency>
+    <Phase>90</Phase>
+   </Axis>
+   <Axis Name="Y">
+    <Offset>130</Offset>
+    <Frequency>3</Frequency>
+    <Phase>0</Phase>
+   </Axis>
+  </Function>
+  <Function ID="32" Type="EFX" Name="FX X Rechts">
+   <Fixture>
+    <ID>9</ID>
+    <Head>0</Head>
+    <Mode>0</Mode>
+    <Direction>Backward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <PropagationMode>Parallel</PropagationMode>
+   <Speed FadeIn="0" FadeOut="0" Duration="20000"/>
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm>Line</Algorithm>
+   <Width>0</Width>
+   <Height>50</Height>
+   <Rotation>0</Rotation>
+   <StartOffset>0</StartOffset>
+   <IsRelative>0</IsRelative>
+   <Axis Name="X">
+    <Offset>136</Offset>
+    <Frequency>2</Frequency>
+    <Phase>90</Phase>
+   </Axis>
+   <Axis Name="Y">
+    <Offset>127</Offset>
+    <Frequency>3</Frequency>
+    <Phase>0</Phase>
+   </Axis>
+  </Function>
+  <Function ID="33" Type="Scene" Name="Neue Szene 33" Path="Mobil">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <ChannelGroupsVal>0,120</ChannelGroupsVal>
+   <FixtureVal ID="5">0,195,1,0,2,0,3,0,4,182,5,0,6,0</FixtureVal>
+   <FixtureVal ID="6">0,195,1,0,2,0,3,0,4,29,5,0,6,0</FixtureVal>
+   <FixtureVal ID="7">0,195,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="34" Type="Scene" Name="Waldbeeren " Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,124,1,0,2,60,3,0,4,0,5,255,6,7,7,127,8,255,9,208,10,0,11,44,12,0,13,158,14,6,15,3,16,15,17,0,18,0,19,255,20,0,21,0,22,117,23,0</FixtureVal>
+   <FixtureVal ID="9">0,134,1,0,2,67,3,0,4,0,5,255,6,7,7,127,8,255,9,208,10,0,11,44,12,0,13,158,14,6,15,3,16,15,17,0,18,0,19,255,20,0,21,0,22,117,23,0</FixtureVal>
+  </Function>
+  <Function ID="35" Type="Scene" Name="Schmarotzer" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,127,1,0,2,127,3,0,4,0,5,255,6,0,7,0,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,255,20,0,21,0,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,127,1,0,2,127,3,0,4,0,5,255,6,94,7,0,8,255,9,0,10,0,11,0,12,0,13,94,14,1,15,0,16,226,17,69,18,0,19,0,20,0,21,0,22,0,23,0</FixtureVal>
+  </Function>
+  <Function ID="36" Type="Scene" Name="9" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,226,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,109,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,109,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,2,23,0</FixtureVal>
+  </Function>
+  <Function ID="37" Type="Scene" Name="8" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,226,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,108,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,108,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0</FixtureVal>
+  </Function>
+  <Function ID="38" Type="Scene" Name="7" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,226,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,107,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,107,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0</FixtureVal>
+  </Function>
+  <Function ID="39" Type="Scene" Name="6" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,226,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,106,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,106,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0</FixtureVal>
+  </Function>
+  <Function ID="40" Type="Scene" Name="5" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,226,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,105,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,105,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0</FixtureVal>
+  </Function>
+  <Function ID="41" Type="Scene" Name="4" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,226,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,104,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,104,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0</FixtureVal>
+  </Function>
+  <Function ID="42" Type="Scene" Name="3" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,226,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,103,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,103,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0</FixtureVal>
+  </Function>
+  <Function ID="43" Type="Scene" Name="2" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,226,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,102,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,102,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0</FixtureVal>
+  </Function>
+  <Function ID="44" Type="Scene" Name="1" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,226,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,101,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,101,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0</FixtureVal>
+  </Function>
+  <Function ID="45" Type="Scene" Name="0" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,226,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,100,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,100,9,0,10,0,11,0,12,191,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0</FixtureVal>
+  </Function>
+  <Function ID="46" Type="Chaser" Name="Countdown">
+   <Speed FadeIn="0" FadeOut="0" Duration="1000"/>
+   <Direction>Forward</Direction>
+   <RunOrder>SingleShot</RunOrder>
+   <SpeedModes FadeIn="PerStep" FadeOut="PerStep" Duration="PerStep"/>
+   <Step Number="0" FadeIn="0" Hold="2000" FadeOut="0">48</Step>
+   <Step Number="1" FadeIn="0" Hold="1000" FadeOut="0">36</Step>
+   <Step Number="2" FadeIn="0" Hold="1000" FadeOut="0">37</Step>
+   <Step Number="3" FadeIn="0" Hold="1000" FadeOut="0">38</Step>
+   <Step Number="4" FadeIn="0" Hold="1000" FadeOut="0">39</Step>
+   <Step Number="5" FadeIn="0" Hold="1000" FadeOut="0">40</Step>
+   <Step Number="6" FadeIn="0" Hold="1000" FadeOut="0">41</Step>
+   <Step Number="7" FadeIn="0" Hold="1000" FadeOut="0">42</Step>
+   <Step Number="8" FadeIn="0" Hold="1000" FadeOut="0">43</Step>
+   <Step Number="9" FadeIn="0" Hold="1000" FadeOut="0">44</Step>
+   <Step Number="10" FadeIn="0" Hold="1000" FadeOut="0">45</Step>
+   <Step Number="11" FadeIn="0" Hold="2500" FadeOut="0">22</Step>
+   <Step Number="12" FadeIn="1000" Hold="7200000" FadeOut="0">7</Step>
+  </Function>
+  <Function ID="47" Type="Scene" Name="Neue Szene 47" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,0,1,0,2,0,3,0,4,0,5,0,6,0,7,0,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,0,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,0,1,0,2,0,3,0,4,0,5,0,6,0,7,0,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,0,22,0,23,0</FixtureVal>
+  </Function>
+  <Function ID="48" Type="Scene" Name="0 BO Move" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,226,1,0,2,174,3,0,4,0,5,0,6,0,7,0,8,0,9,0,10,0,11,0,12,2,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,0,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,243,1,0,2,174,3,0,4,0,5,0,6,0,7,0,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,0,22,0,23,0</FixtureVal>
+  </Function>
+  <Function ID="49" Type="Scene" Name="Rotlicht" Path="Hütte">
+   <Speed FadeIn="2000" FadeOut="2000" Duration="0"/>
+   <FixtureVal ID="0">0,10,1,255,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="50" Type="Scene" Name="X Grün">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">0,74,1,0,2,82,3,0,4,0,5,255,6,255,7,0,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,76,1,0,2,174,3,0,4,0,5,255,6,255,7,0,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,255,22,0,23,0</FixtureVal>
+  </Function>
+  <Function ID="51" Type="Scene" Name="Rot" Path="Arena/Sparx-Only">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="8">5,255,6,255,7,0,8,220,9,0,10,32,20,255</FixtureVal>
+   <FixtureVal ID="9">5,255,6,255,7,0,8,220,9,0,10,32,20,255</FixtureVal>
+  </Function>
+  <Function ID="52" Type="EFX" Name="ML_Links_auf_Segel">
+   <Fixture>
+    <ID>8</ID>
+    <Head>0</Head>
+    <Mode>0</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <PropagationMode>Parallel</PropagationMode>
+   <Speed FadeIn="0" FadeOut="0" Duration="20000"/>
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm>Line</Algorithm>
+   <Width>0</Width>
+   <Height>10</Height>
+   <Rotation>0</Rotation>
+   <StartOffset>0</StartOffset>
+   <IsRelative>0</IsRelative>
+   <Axis Name="X">
+    <Offset>100</Offset>
+    <Frequency>2</Frequency>
+    <Phase>90</Phase>
+   </Axis>
+   <Axis Name="Y">
+    <Offset>46</Offset>
+    <Frequency>3</Frequency>
+    <Phase>0</Phase>
+   </Axis>
+  </Function>
+  <Function ID="53" Type="Scene" Name="Spot" Path="Garten">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,255,1,0,2,0,3,0,4,255,5,0,6,0</FixtureVal>
+   <FixtureVal ID="8">0,0,1,0,2,0,3,0,4,0,5,0,6,0,7,0,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,0,22,0,23,0</FixtureVal>
+   <FixtureVal ID="9">0,0,1,0,2,0,3,0,4,0,5,0,6,0,7,0,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,0,22,0,23,0</FixtureVal>
+   <FixtureVal ID="0">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="5">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="6">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="7">0,0,1,0,2,0,3,0,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="10">0,0,1,0,2,0,3,0,4,0,5,0,6,0,7,0,8,0,9,0,10,0,11,0,12,0,13,0,14,0,15,0,16,0,17,0,18,0,19,0,20,0,21,0,22,0,23,0</FixtureVal>
+  </Function>
+  <Function ID="54" Type="Scene" Name="Taghell" Path="Garten">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,255,1,255,2,255,3,255,4,255,5,255,6,0</FixtureVal>
+   <FixtureVal ID="1">0,255,1,255,2,255,3,255,4,255,5,255,6,0</FixtureVal>
+   <FixtureVal ID="4">0,255,1,255,2,255,3,255,4,255,5,255,6,0</FixtureVal>
+   <FixtureVal ID="3">0,255,1,255,2,255,3,255,4,255,5,255,6,0</FixtureVal>
+   <FixtureVal ID="8">0,255,1,255,2,255,3,255,4,255,5,255,6,0</FixtureVal>
+   <FixtureVal ID="9">0,255,1,255,2,255,3,255,4,255,5,255,6,0</FixtureVal>
+   <FixtureVal ID="0">0,255,1,255,2,255,3,255,4,255,5,255,6,0</FixtureVal>
+   <FixtureVal ID="5">0,255,1,255,2,255,3,255,4,255,5,255,6,0</FixtureVal>
+   <FixtureVal ID="6">0,255,1,255,2,255,3,255,4,255,5,255,6,0</FixtureVal>
+   <FixtureVal ID="7">0,255,1,255,2,255,3,255,4,255,5,255,6,0</FixtureVal>
+   <FixtureVal ID="10">0,255,1,255,2,255,3,255,4,255,5,255,6,255,7,255,8,255,9,255,10,255,11,255,12,255,13,255,14,255,15,255,16,255,17,255,18,255,19,255,20,255,21,255,22,255,23,255</FixtureVal>
+  </Function>
+  <Function ID="55" Type="EFX" Name="ML_Rechts_Buschi">
+   <Fixture>
+    <ID>9</ID>
+    <Head>0</Head>
+    <Mode>0</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <PropagationMode>Parallel</PropagationMode>
+   <Speed FadeIn="0" FadeOut="0" Duration="20000"/>
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm>Circle</Algorithm>
+   <Width>20</Width>
+   <Height>20</Height>
+   <Rotation>200</Rotation>
+   <StartOffset>200</StartOffset>
+   <IsRelative>1</IsRelative>
+   <Axis Name="X">
+    <Offset>150</Offset>
+    <Frequency>2</Frequency>
+    <Phase>90</Phase>
+   </Axis>
+   <Axis Name="Y">
+    <Offset>150</Offset>
+    <Frequency>3</Frequency>
+    <Phase>0</Phase>
+   </Axis>
+  </Function>
+  <Function ID="56" Type="Scene" Name="Lila" Path="Arena/Truss">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,64,1,252,2,0,3,220,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,64,1,252,2,0,3,220,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,64,1,252,2,0,3,220,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,64,1,252,2,0,3,220,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="57" Type="Scene" Name="Hellblau" Path="Arena/Truss">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="2">0,64,1,0,2,255,3,255,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="1">0,64,1,0,2,255,3,255,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="4">0,64,1,0,2,255,3,255,4,0,5,0,6,0</FixtureVal>
+   <FixtureVal ID="3">0,64,1,0,2,255,3,255,4,0,5,0,6,0</FixtureVal>
+  </Function>
+  <Function ID="58" Type="Chaser" Name="Farbwechsel" Path="Arena">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <SpeedModes FadeIn="Default" FadeOut="Default" Duration="Common"/>
+   <Step Number="0" FadeIn="0" Hold="0" FadeOut="0">20</Step>
+   <Step Number="1" FadeIn="0" Hold="0" FadeOut="0">4</Step>
+   <Step Number="2" FadeIn="0" Hold="0" FadeOut="0">3</Step>
+   <Step Number="3" FadeIn="0" Hold="0" FadeOut="0">57</Step>
+   <Step Number="4" FadeIn="0" Hold="0" FadeOut="0">56</Step>
+   <Step Number="5" FadeIn="0" Hold="0" FadeOut="0">2</Step>
+  </Function>
+  <Monitor DisplayMode="0" ShowLabels="1">
+   <Font>Arial,12,-1,5,50,0,0,0,0,0</Font>
+   <ChannelStyle>0</ChannelStyle>
+   <ValueStyle>0</ValueStyle>
+   <Background>/Volumes/FRITZ.NAS/ARNE/kw30/DJI_0019.JPG</Background>
+   <Grid Width="2" Height="3" Depth="3" Units="0"/>
+   <FxItem ID="8" XPos="570.819" YPos="1138.6" GelColor="#00ff80"/>
+  </Monitor>
+ </Engine>
+ <VirtualConsole>
+  <Frame Caption="">
+   <Appearance>
+    <FrameStyle>None</FrameStyle>
+    <ForegroundColor>Default</ForegroundColor>
+    <BackgroundColor>Default</BackgroundColor>
+    <BackgroundImage>None</BackgroundImage>
+    <Font>Default</Font>
+   </Appearance>
+   <SoloFrame Caption="Garten" ID="0">
+    <Appearance>
+     <FrameStyle>Sunken</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <WindowState Visible="False" X="0" Y="0" Width="1210" Height="615"/>
+    <AllowChildren>True</AllowChildren>
+    <AllowResize>False</AllowResize>
+    <ShowHeader>True</ShowHeader>
+    <ShowEnableButton>False</ShowEnableButton>
+    <Mixing>False</Mixing>
+    <Collapsed>False</Collapsed>
+    <Disabled>False</Disabled>
+    <SoloFrame Caption="Hütte" ID="1">
+     <Appearance>
+      <FrameStyle>Sunken</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <WindowState Visible="False" X="5" Y="335" Width="300" Height="275"/>
+     <AllowChildren>True</AllowChildren>
+     <AllowResize>True</AllowResize>
+     <ShowHeader>True</ShowHeader>
+     <ShowEnableButton>False</ShowEnableButton>
+     <Mixing>False</Mixing>
+     <Collapsed>False</Collapsed>
+     <Disabled>False</Disabled>
+     <Button Caption="Baulicht" ID="11" Icon="">
+      <WindowState Visible="False" X="5" Y="40" Width="290" Height="45"/>
+      <Appearance>
+       <FrameStyle>None</FrameStyle>
+       <ForegroundColor>Default</ForegroundColor>
+       <BackgroundColor>Default</BackgroundColor>
+       <BackgroundImage>None</BackgroundImage>
+       <Font>Default</Font>
+      </Appearance>
+      <Function ID="1"/>
+      <Action>Toggle</Action>
+      <Intensity Adjust="False">100</Intensity>
+     </Button>
+     <Button Caption="Arbeitslicht" ID="12" Icon="">
+      <WindowState Visible="False" X="5" Y="90" Width="290" Height="45"/>
+      <Appearance>
+       <FrameStyle>None</FrameStyle>
+       <ForegroundColor>Default</ForegroundColor>
+       <BackgroundColor>Default</BackgroundColor>
+       <BackgroundImage>None</BackgroundImage>
+       <Font>Default</Font>
+      </Appearance>
+      <Function ID="30"/>
+      <Action>Toggle</Action>
+      <Intensity Adjust="False">100</Intensity>
+     </Button>
+     <Button Caption="Rotlicht" ID="5" Icon="">
+      <WindowState Visible="False" X="5" Y="140" Width="290" Height="45"/>
+      <Appearance>
+       <FrameStyle>None</FrameStyle>
+       <ForegroundColor>Default</ForegroundColor>
+       <BackgroundColor>Default</BackgroundColor>
+       <BackgroundImage>None</BackgroundImage>
+       <Font>Default</Font>
+      </Appearance>
+      <Function ID="49"/>
+      <Action>Toggle</Action>
+      <Intensity Adjust="False">100</Intensity>
+     </Button>
+    </SoloFrame>
+    <SoloFrame Caption="Arena" ID="2">
+     <Appearance>
+      <FrameStyle>Sunken</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <WindowState Visible="False" X="310" Y="40" Width="645" Height="570"/>
+     <AllowChildren>True</AllowChildren>
+     <AllowResize>False</AllowResize>
+     <ShowHeader>True</ShowHeader>
+     <ShowEnableButton>False</ShowEnableButton>
+     <Mixing>False</Mixing>
+     <Collapsed>False</Collapsed>
+     <Disabled>False</Disabled>
+     <SoloFrame Caption="Moving Lights" ID="3">
+      <Appearance>
+       <FrameStyle>Sunken</FrameStyle>
+       <ForegroundColor>Default</ForegroundColor>
+       <BackgroundColor>Default</BackgroundColor>
+       <BackgroundImage>None</BackgroundImage>
+       <Font>Default</Font>
+      </Appearance>
+      <WindowState Visible="False" X="440" Y="40" Width="200" Height="525"/>
+      <AllowChildren>True</AllowChildren>
+      <AllowResize>False</AllowResize>
+      <ShowHeader>True</ShowHeader>
+      <ShowEnableButton>False</ShowEnableButton>
+      <Mixing>False</Mixing>
+      <Collapsed>False</Collapsed>
+      <Disabled>False</Disabled>
+      <Button Caption="Bonbon Feuer" ID="6" Icon="">
+       <WindowState Visible="False" X="5" Y="40" Width="190" Height="40"/>
+       <Appearance>
+        <FrameStyle>None</FrameStyle>
+        <ForegroundColor>Default</ForegroundColor>
+        <BackgroundColor>Default</BackgroundColor>
+        <BackgroundImage>None</BackgroundImage>
+        <Font>Default</Font>
+       </Appearance>
+       <Function ID="21"/>
+       <Action>Toggle</Action>
+       <Intensity Adjust="False">100</Intensity>
+      </Button>
+      <Button Caption="Smilies" ID="7" Icon="">
+       <WindowState Visible="False" X="5" Y="85" Width="190" Height="40"/>
+       <Appearance>
+        <FrameStyle>None</FrameStyle>
+        <ForegroundColor>Default</ForegroundColor>
+        <BackgroundColor>Default</BackgroundColor>
+        <BackgroundImage>None</BackgroundImage>
+        <Font>Default</Font>
+       </Appearance>
+       <Function ID="22"/>
+       <Action>Toggle</Action>
+       <Intensity Adjust="False">100</Intensity>
+      </Button>
+      <Button Caption="X" ID="16" Icon="">
+       <WindowState Visible="False" X="5" Y="130" Width="190" Height="40"/>
+       <Appearance>
+        <FrameStyle>None</FrameStyle>
+        <ForegroundColor>Default</ForegroundColor>
+        <BackgroundColor>Default</BackgroundColor>
+        <BackgroundImage>None</BackgroundImage>
+        <Font>Default</Font>
+       </Appearance>
+       <Function ID="50"/>
+       <Action>Toggle</Action>
+       <Intensity Adjust="False">100</Intensity>
+      </Button>
+      <Button Caption="Red Lines" ID="26" Icon="">
+       <WindowState Visible="False" X="5" Y="175" Width="190" Height="40"/>
+       <Appearance>
+        <FrameStyle>None</FrameStyle>
+        <ForegroundColor>Default</ForegroundColor>
+        <BackgroundColor>Default</BackgroundColor>
+        <BackgroundImage>None</BackgroundImage>
+        <Font>Default</Font>
+       </Appearance>
+       <Function ID="29"/>
+       <Action>Toggle</Action>
+       <Intensity Adjust="False">100</Intensity>
+      </Button>
+     </SoloFrame>
+     <Button Caption="Kinostart" ID="8" Icon="">
+      <WindowState Visible="False" X="10" Y="45" Width="190" Height="40"/>
+      <Appearance>
+       <FrameStyle>None</FrameStyle>
+       <ForegroundColor>Default</ForegroundColor>
+       <BackgroundColor>Default</BackgroundColor>
+       <BackgroundImage>None</BackgroundImage>
+       <Font>Default</Font>
+      </Appearance>
+      <Function ID="46"/>
+      <Action>Toggle</Action>
+      <Intensity Adjust="False">100</Intensity>
+     </Button>
+     <SoloFrame Caption="Truss" ID="9">
+      <Appearance>
+       <FrameStyle>Sunken</FrameStyle>
+       <ForegroundColor>Default</ForegroundColor>
+       <BackgroundColor>Default</BackgroundColor>
+       <BackgroundImage>None</BackgroundImage>
+       <Font>Default</Font>
+      </Appearance>
+      <WindowState Visible="False" X="205" Y="40" Width="230" Height="525"/>
+      <AllowChildren>True</AllowChildren>
+      <AllowResize>False</AllowResize>
+      <ShowHeader>True</ShowHeader>
+      <ShowEnableButton>False</ShowEnableButton>
+      <Mixing>False</Mixing>
+      <Collapsed>False</Collapsed>
+      <Disabled>False</Disabled>
+      <Button Caption="Amber" ID="10" Icon="">
+       <WindowState Visible="False" X="5" Y="40" Width="220" Height="40"/>
+       <Appearance>
+        <FrameStyle>None</FrameStyle>
+        <ForegroundColor>Default</ForegroundColor>
+        <BackgroundColor>Default</BackgroundColor>
+        <BackgroundImage>None</BackgroundImage>
+        <Font>Default</Font>
+       </Appearance>
+       <Function ID="20"/>
+       <Action>Toggle</Action>
+       <Intensity Adjust="False">100</Intensity>
+      </Button>
+      <Button Caption="Rot" ID="17" Icon="">
+       <WindowState Visible="False" X="5" Y="85" Width="220" Height="40"/>
+       <Appearance>
+        <FrameStyle>None</FrameStyle>
+        <ForegroundColor>Default</ForegroundColor>
+        <BackgroundColor>Default</BackgroundColor>
+        <BackgroundImage>None</BackgroundImage>
+        <Font>Default</Font>
+       </Appearance>
+       <Function ID="2"/>
+       <Action>Toggle</Action>
+       <Intensity Adjust="False">100</Intensity>
+      </Button>
+      <Button Caption="Grün" ID="18" Icon="">
+       <WindowState Visible="False" X="5" Y="130" Width="220" Height="40"/>
+       <Appearance>
+        <FrameStyle>None</FrameStyle>
+        <ForegroundColor>Default</ForegroundColor>
+        <BackgroundColor>Default</BackgroundColor>
+        <BackgroundImage>None</BackgroundImage>
+        <Font>Default</Font>
+       </Appearance>
+       <Function ID="3"/>
+       <Action>Toggle</Action>
+       <Intensity Adjust="False">100</Intensity>
+      </Button>
+      <Button Caption="Blau" ID="19" Icon="">
+       <WindowState Visible="False" X="5" Y="175" Width="220" Height="40"/>
+       <Appearance>
+        <FrameStyle>None</FrameStyle>
+        <ForegroundColor>Default</ForegroundColor>
+        <BackgroundColor>Default</BackgroundColor>
+        <BackgroundImage>None</BackgroundImage>
+        <Font>Default</Font>
+       </Appearance>
+       <Function ID="4"/>
+       <Action>Toggle</Action>
+       <Intensity Adjust="False">100</Intensity>
+      </Button>
+      <Button Caption="Farbwechsel" ID="27" Icon="">
+       <WindowState Visible="False" X="5" Y="220" Width="220" Height="40"/>
+       <Appearance>
+        <FrameStyle>None</FrameStyle>
+        <ForegroundColor>Default</ForegroundColor>
+        <BackgroundColor>Default</BackgroundColor>
+        <BackgroundImage>None</BackgroundImage>
+        <Font>Default</Font>
+       </Appearance>
+       <Function ID="58"/>
+       <Action>Toggle</Action>
+       <Intensity Adjust="False">100</Intensity>
+      </Button>
+     </SoloFrame>
+     <Button Caption="Kino II" ID="14" Icon="">
+      <WindowState Visible="False" X="10" Y="135" Width="190" Height="40"/>
+      <Appearance>
+       <FrameStyle>None</FrameStyle>
+       <ForegroundColor>Default</ForegroundColor>
+       <BackgroundColor>Default</BackgroundColor>
+       <BackgroundImage>None</BackgroundImage>
+       <Font>Default</Font>
+      </Appearance>
+      <Function ID="10"/>
+      <Action>Toggle</Action>
+      <Intensity Adjust="False">100</Intensity>
+     </Button>
+     <Button Caption="Disco I" ID="15" Icon="">
+      <WindowState Visible="False" X="10" Y="180" Width="190" Height="40"/>
+      <Appearance>
+       <FrameStyle>None</FrameStyle>
+       <ForegroundColor>Default</ForegroundColor>
+       <BackgroundColor>Default</BackgroundColor>
+       <BackgroundImage>None</BackgroundImage>
+       <Font>Default</Font>
+      </Appearance>
+      <Function ID="28"/>
+      <Action>Toggle</Action>
+      <Intensity Adjust="False">100</Intensity>
+     </Button>
+     <Button Caption="Kino I" ID="4" Icon="">
+      <WindowState Visible="False" X="10" Y="90" Width="190" Height="40"/>
+      <Appearance>
+       <FrameStyle>None</FrameStyle>
+       <ForegroundColor>Default</ForegroundColor>
+       <BackgroundColor>Default</BackgroundColor>
+       <BackgroundImage>None</BackgroundImage>
+       <Font>Default</Font>
+      </Appearance>
+      <Function ID="7"/>
+      <Action>Toggle</Action>
+      <Intensity Adjust="False">100</Intensity>
+     </Button>
+     <Button Caption="Disco II" ID="13" Icon="">
+      <WindowState Visible="False" X="10" Y="225" Width="190" Height="40"/>
+      <Appearance>
+       <FrameStyle>None</FrameStyle>
+       <ForegroundColor>Default</ForegroundColor>
+       <BackgroundColor>Default</BackgroundColor>
+       <BackgroundImage>None</BackgroundImage>
+       <Font>Default</Font>
+      </Appearance>
+      <Function ID="28"/>
+      <Action>Toggle</Action>
+      <Intensity Adjust="False">100</Intensity>
+     </Button>
+    </SoloFrame>
+    <SoloFrame Caption="Mobile" ID="20">
+     <Appearance>
+      <FrameStyle>Sunken</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <WindowState Visible="False" X="960" Y="40" Width="245" Height="570"/>
+     <AllowChildren>True</AllowChildren>
+     <AllowResize>False</AllowResize>
+     <ShowHeader>True</ShowHeader>
+     <ShowEnableButton>False</ShowEnableButton>
+     <Mixing>False</Mixing>
+     <Collapsed>False</Collapsed>
+     <Disabled>False</Disabled>
+    </SoloFrame>
+    <Button Caption="Bullen" ID="21" Icon="">
+     <WindowState Visible="False" X="5" Y="40" Width="300" Height="50"/>
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="8"/>
+     <Action>Toggle</Action>
+     <Intensity Adjust="False">100</Intensity>
+    </Button>
+    <Button Caption="Taghell" ID="22" Icon="">
+     <WindowState Visible="False" X="5" Y="150" Width="300" Height="50"/>
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="54"/>
+     <Action>Toggle</Action>
+     <Intensity Adjust="False">100</Intensity>
+    </Button>
+    <Button Caption="Schlafenszeit" ID="23" Icon="">
+     <WindowState Visible="False" X="5" Y="205" Width="300" Height="50"/>
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="24"/>
+     <Action>Toggle</Action>
+     <Intensity Adjust="False">100</Intensity>
+    </Button>
+    <Button Caption="Alles aus" ID="24" Icon="">
+     <WindowState Visible="False" X="5" Y="260" Width="300" Height="50"/>
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="4294967295"/>
+     <Action>Blackout</Action>
+     <Intensity Adjust="False">100</Intensity>
+    </Button>
+    <Button Caption="Spot" ID="25" Icon="">
+     <WindowState Visible="False" X="5" Y="95" Width="300" Height="50"/>
+     <Appearance>
+      <FrameStyle>None</FrameStyle>
+      <ForegroundColor>Default</ForegroundColor>
+      <BackgroundColor>Default</BackgroundColor>
+      <BackgroundImage>None</BackgroundImage>
+      <Font>Default</Font>
+     </Appearance>
+     <Function ID="53"/>
+     <Action>Toggle</Action>
+     <Intensity Adjust="False">100</Intensity>
+    </Button>
+   </SoloFrame>
+  </Frame>
+  <Properties>
+   <Size Width="1920" Height="1080"/>
+   <GrandMaster ChannelMode="Intensity" ValueMode="Reduce" SliderMode="Normal"/>
+  </Properties>
+ </VirtualConsole>
+ <SimpleDesk>
+  <Engine/>
+ </SimpleDesk>
+</Workspace>

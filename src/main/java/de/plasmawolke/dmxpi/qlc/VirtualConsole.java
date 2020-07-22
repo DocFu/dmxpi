@@ -2,10 +2,12 @@ package de.plasmawolke.dmxpi.qlc;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.net.SocketTimeoutException;
 import java.net.URI;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
@@ -61,10 +63,28 @@ public class VirtualConsole implements PropertyChangeListener {
 		return instance;
 	}
 
+	private static boolean initx(String url, String wsUrl) throws InterruptedException {
+		logger.info("Initializing Virtual Console...");
+		try {
+			instance.collectButtons(url);
+			instance.connectWithWebSocket(wsUrl);
+			instance.initialized = true;
+			return false;
+		} catch (Exception e) {
+			Thread.sleep(12000);
+			return true;
+		}
+
+	}
+
 	public static void init(String url, String wsUrl) throws Exception {
-		instance.collectButtons(url);
-		instance.connectWithWebSocket(wsUrl);
-		instance.initialized = true;
+
+		boolean retry = false;
+
+		do {
+			retry = initx(url, wsUrl);
+		} while (retry);
+
 	}
 
 	public void clickButton(Integer id) {
@@ -111,6 +131,11 @@ public class VirtualConsole implements PropertyChangeListener {
 		int value = Integer.parseInt(parts[2]); // e.g. 127
 
 		VirtualConsoleButton vcb = buttons.get(id);
+
+		if (vcb == null) {
+			logger.warn("VirtualConsoleButton with id [" + id + "] is null.");
+			return;
+		}
 
 		if (value == 0) {
 			vcb.updateState(false);
@@ -189,6 +214,10 @@ public class VirtualConsole implements PropertyChangeListener {
 			logger.info("Switched " + ((boolean) evt.getNewValue() ? "ON" : "OFF") + " " + vcb);
 		}
 
+	}
+
+	public void shutdown() {
+		wsSession.close();
 	}
 
 }

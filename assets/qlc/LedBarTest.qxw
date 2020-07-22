@@ -4,7 +4,7 @@
  <Creator>
   <Name>Q Light Controller Plus</Name>
   <Version>4.12.2</Version>
-  <Author>DocFu</Author>
+  <Author>Fu</Author>
  </Creator>
  <Engine>
   <InputOutputMap>
@@ -69,7 +69,7 @@
     <BackgroundImage>None</BackgroundImage>
     <Font>Default</Font>
    </Appearance>
-   <SoloFrame Caption="Fozzy Garden" ID="7">
+   <SoloFrame Caption="Garten" ID="7">
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -79,9 +79,9 @@
     </Appearance>
     <WindowState Visible="True" X="125" Y="95" Width="965" Height="425"/>
     <AllowChildren>True</AllowChildren>
-    <AllowResize>True</AllowResize>
+    <AllowResize>False</AllowResize>
     <ShowHeader>True</ShowHeader>
-    <ShowEnableButton>True</ShowEnableButton>
+    <ShowEnableButton>False</ShowEnableButton>
     <Mixing>False</Mixing>
     <Collapsed>False</Collapsed>
     <Disabled>False</Disabled>
@@ -121,9 +121,9 @@
      </Appearance>
      <WindowState Visible="True" X="485" Y="60" Width="450" Height="340"/>
      <AllowChildren>True</AllowChildren>
-     <AllowResize>True</AllowResize>
+     <AllowResize>False</AllowResize>
      <ShowHeader>True</ShowHeader>
-     <ShowEnableButton>True</ShowEnableButton>
+     <ShowEnableButton>False</ShowEnableButton>
      <Mixing>False</Mixing>
      <Collapsed>False</Collapsed>
      <Disabled>False</Disabled>
@@ -190,9 +190,9 @@
      </Appearance>
      <WindowState Visible="True" X="290" Y="60" Width="185" Height="340"/>
      <AllowChildren>True</AllowChildren>
-     <AllowResize>True</AllowResize>
+     <AllowResize>False</AllowResize>
      <ShowHeader>True</ShowHeader>
-     <ShowEnableButton>True</ShowEnableButton>
+     <ShowEnableButton>False</ShowEnableButton>
      <Mixing>False</Mixing>
      <Collapsed>False</Collapsed>
      <Disabled>False</Disabled>

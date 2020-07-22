@@ -1,0 +1,13 @@
+[Unit]
+ Description=DMX Pi Service
+ Requires=qlcplus.service
+ After=qlcplus.target
+
+[Service]
+ Type=idle
+ ExecStart=/usr/bin/java -Dpi4j.linking=dynamic -classpath .:classes:/opt/pi4j/lib/'*' -jar /home/pi/dmxpi-app.jar
+
+[Install]
+ WantedBy=multi-user.target
+ 
+ 
